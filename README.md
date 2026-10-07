@@ -1,4 +1,4 @@
-# Customer Feedback Automation
+# Customer Feedback
 
 ## Project Overview
 
@@ -92,7 +92,7 @@ This automation demonstrates how Power Automate can be used to:
 
 ## Screenshots
 
-Screenshots demonstrating the Microsoft Form, Excel table and Power Automate workflow are included in the `Screenshots` folder.
+Screenshots demonstrating the Microsoft Form, Excel table and Power Automate workflow are included in the Screenshots folder.
 
 ## Future Improvements
 
