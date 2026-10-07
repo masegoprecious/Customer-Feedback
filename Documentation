@@ -1,0 +1,185 @@
+# Customer Feedback Automation — Project Documentation
+
+## 1. Project Overview
+
+The Customer Feedback Automation is a Power Automate project designed to automate the collection, storage and processing of customer feedback.
+
+Customers submit their feedback through Microsoft Forms. Power Automate retrieves the response and stores it in an Excel table. The workflow then checks the customer's rating and sends an appropriate email notification.
+
+## 2. Problem
+
+Customer feedback can require manual processing. This can result in:
+
+* Delayed responses
+* Feedback being overlooked
+* Time spent manually checking ratings
+* Difficulty identifying customers who require follow-up
+
+## 3. Solution
+
+A Power Automate workflow was created to automatically process customer feedback.
+
+The workflow:
+
+1. Receives a new Microsoft Forms response.
+2. Retrieves the response details.
+3. Adds the information to an Excel table.
+4. Checks the customer's rating.
+5. Sends a thank-you email when the rating is 4 or 5.
+6. Sends an alert to the customer-service team when the rating is below 4.
+
+## 4. Technologies Used
+
+* Microsoft Forms
+* Microsoft Excel
+* Power Automate
+* Outlook
+
+## 5. Microsoft Forms
+
+The customer feedback form contains the following fields:
+
+* Customer Name
+* Email Address
+* Product/Service
+* Rating
+* Feedback
+* Would you recommend us?
+
+The rating uses a scale from 1 to 5.
+
+## 6. Excel Table
+
+The feedback responses are stored in an Excel table.
+
+### Table Name
+
+`FeedbackTable`
+
+### Columns
+
+| Column       | Description              |
+| ------------ | ------------------------ |
+| CustomerName | Customer's name          |
+| Email        | Customer's email address |
+| Product      | Product or service       |
+| Rating       | Rating from 1 to 5       |
+| Feedback     | Customer comments        |
+| Recommend    | Recommendation response  |
+| Date         | Date of submission       |
+
+## 7. Power Automate Workflow
+
+### Trigger
+
+**When a new response is submitted**
+
+This starts the workflow whenever a customer submits the Microsoft Form.
+
+### Action 1 — Get response details
+
+The workflow retrieves the information submitted by the customer.
+
+### Action 2 — Add a row into an Excel table
+
+The customer's response is added to the `FeedbackTable` Excel table.
+
+### Action 3 — Condition
+
+The workflow checks:
+
+**Rating is greater than or equal to 4**
+
+### If Yes
+
+A thank-you email is sent to the customer.
+
+### If No
+
+An alert email is sent to the customer-service team so that the feedback can be reviewed and followed up.
+
+## 8. Workflow Logic
+
+```text
+New Form Response
+       ↓
+Get Response Details
+       ↓
+Add Row to Excel
+       ↓
+Rating >= 4?
+     ↙       ↘
+   YES        NO
+    ↓          ↓
+Thank-you    Alert
+Email        Customer Service
+```
+
+## 9. Testing
+
+The workflow should be tested using at least two scenarios.
+
+### Test 1 — Positive Feedback
+
+Rating: **5**
+
+Expected result:
+
+* Response is added to Excel.
+* Customer receives a thank-you email.
+
+### Test 2 — Feedback Requiring Attention
+
+Rating: **2**
+
+Expected result:
+
+* Response is added to Excel.
+* Customer-service team receives an alert.
+
+## 10. Business Value
+
+The automation can help an organisation:
+
+* Reduce manual administrative work
+* Respond to customers faster
+* Identify negative feedback
+* Improve customer-service follow-up
+* Keep feedback records organised
+* Create a foundation for reporting and analytics
+
+## 11. Challenges
+
+During development, possible challenges include:
+
+* Connecting Microsoft Forms to Power Automate
+* Correctly mapping form responses to Excel columns
+* Ensuring the Excel data is stored in a table
+* Configuring the rating condition
+* Testing both branches of the workflow
+
+## 12. Future Improvements
+
+Future versions could include:
+
+* Power BI dashboard
+* Microsoft Teams notifications
+* Automatic feedback categorisation
+* Customer follow-up tracking
+* Sentiment analysis
+* Monthly automated reports
+* Power Apps interface for customer-service staff
+
+## 13. Skills Demonstrated
+
+This project demonstrates practical skills in:
+
+* Power Automate
+* Microsoft Forms
+* Excel
+* Workflow automation
+* Conditional logic
+* Data collection
+* Email automation
+* Business process automation
+* Basic data analysis
